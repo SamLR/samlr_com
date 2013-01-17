@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SamLR.com</title>
+        <meta property="og:title" content="SamLR.com"/>
+        <meta name="description" content="The personal site of Sam Cook"/>
+        <meta name="og:description" content="The personal site of Sam Cook"/>
+        <!-- <meta property="og:image" content="https://www.emfcamp.org/static/images/emf_logo_small.png"/> -->
+        <meta property="og:url" content="https://www.samlr.com"/>
+        <!--{# { % assets "css_all" -% }
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+        { % endassets -% }
+        { % block head -% }{% endblock -% } #}-->
+    </head>
+<body>
+<div class="container-fluid">
+    <header>
+        <h1>
+            <span class="logo"></span>
+            <a href="/">SamLR.com</a>
+        </h1>
+    </header>
+    <div class="row-fluid">
+        <!-- { % include "nav.html" % } -->
+        
+        {% block body %}
+        {% endblock body %}
+        
+    </div>
+    <footer>
+        <p>
+          footer footer footer
+        </p>
+    </footer>
+</div>
+</body>
+</html>

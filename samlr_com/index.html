@@ -1,0 +1,16 @@
+--- YAML!
+layout: base
+tag: 
+ - monkey nuts
+ - chicken
+ - moose
+---
+
+{% block body %}
+<body id="index" onload="">
+  who knows if this will work?
+  {% for i in item.metadata['tag'] %}
+    {{ i }}
+  {% endfor %}
+</body>
+{% endblock %}
