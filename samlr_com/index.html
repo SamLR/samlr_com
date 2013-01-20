@@ -1,16 +1,20 @@
 --- YAML!
 layout: base
-tag: 
- - monkey nuts
- - chicken
- - moose
 ---
+{% block navbar %}
+<!--
+  TODO make a specific 'top nav' class that sets the style
+  TODO auto add the nav bar some how
+-->
+<ul class="nav nav-pills" style="margin-top: 10px">
+  <li class="active">
+    <a href="/">Home</a>
+  </li>
+  <li><a href="/posts">Blog</a></li>
+  <li><a href="/about.html">About</a></li>
+</ul>
+{% endblock %}
 
 {% block body %}
-<body id="index" onload="">
-  who knows if this will work?
-  {% for i in item.metadata['tag'] %}
-    {{ i }}
-  {% endfor %}
-</body>
+
 {% endblock %}

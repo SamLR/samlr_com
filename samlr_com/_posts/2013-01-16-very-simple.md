@@ -1,5 +1,5 @@
 --- BEGIN YAML HEADER
-layout: base
+layout: post
 --- END YAML HEADER
 {% block body %}
 Hello world [test](example.com)    
