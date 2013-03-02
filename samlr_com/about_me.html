@@ -1,17 +1,6 @@
---- BEGIN YAML HEADER ---
-layout: base
---- END YAML HEADER  ---
-{% block navbar %}
-<!-- horrible hack to align navpills with bottom of 'SamLR.com' -->
-<ul class="nav nav-pills" style="margin-top: 10px"> 
-  <li><a href="/">Home</a></li>
-  <li><a href="/posts">Blog</a></li>
-  <li  class="active">
-    <a href="/about.html">About</a>
-  </li>
-</ul>
-{% endblock %}
-
+----- YAML front matter -----
+layout: about
+--- End YAML front matter ---
 {% block body %}
   <p>
   My name is Sam. I'm (currently) a PhD student studying physics at UCL in London. I work on two projects: MuSIC, a muon beamline being build in Osaka, Japan, and <a href="http://www.xfel.eu/">Eu-XFEL</a>, an X-ray source which I write firmware for.
@@ -19,4 +8,4 @@ layout: base
   <p>
   In my spare time I have helped run <a href="http://emfcamp.org">EMFcamp</a> (the first UK hacker camp). Helped in 3 48hr sci-fi film challenges (as part of the <a href="http://www.youtube.com/user/tortoisebutler">Tortoise Butler</a> team) as well as several other short films with the same crew.
   </p>
-{% endblock %}
+{% endblock body %}
