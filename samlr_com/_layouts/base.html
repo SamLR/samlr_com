@@ -9,12 +9,33 @@
   <meta name="og:description" content="The personal site of Sam Cook"/>
   <meta property="og:url" content="https://www.samlr.com"/>
   <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <style type="text/css" media="screen">
+  /* Leave room at the bottom for the floating footer */
+    body{
+      padding-bottom: 42px;
+    }
+    /* The following makes the footer bar centered based on: http://stackoverflow.com/questions/10568103/modify-twitter-bootstrap-navbar*/
+    .center.navbar .nav,
+    .center.navbar .nav > li {
+      float:none;
+      display:inline-block;
+      *display:inline; /* ie7 fix */
+      *zoom:1; /* hasLayout ie7 trigger */
+      vertical-align: top;
+    }
+    .center .navbar-inner {
+      text-align:center;
+    }
+    .center .dropdown-menu {
+      text-align: left;
+    }
+  </style>
   <link rel="icon" href="../images/SamLR_favicon.gif" type="image/gif">
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row-fluid span10 offset1" vertical-align="bottom">      
-      <div class="span4">
+    <div class="row-fluid">      
+      <div class="span4 offset1">
         <h1>
           <a href="/">SamLR.com</a>
         </h1>
@@ -25,11 +46,6 @@
           {% block navbar %}
           {% endblock navbar %}
         </ul>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <hr>
       </div>
     </div>
     {# ### BODY ### #}
@@ -44,18 +60,27 @@
       </div>
     </div>
     {# ### FOOTER ### #}
-    <div class="row-fluid">
-      <div class="span12">
-        <hr>  
-      </div>
-      <div class="span10 offset1">
-        <small style="text-align:center;">
-          <address>
-            <a href="mailto:sam@samlr.com" target="_blank">Email</a> <strong>|</strong> <a href="https://twitter.com/sam_cook">Twitter</a> <strong>|</strong> <a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a> <strong>|</strong> <a href="https://github.com/SamLR">GitHub</a> <strong>|</strong> <a href="http://www.flickr.com/photos/samlr/">flickr</a>
-          </address>
-        </small>
+    <div class="navbar navbar-fixed-bottom center">
+      <div class="navbar-inner">
+        <footer>
+          <ul class="inline">
+            <li><micro><muted><small>Find me:</small></muted></micro></li>
+            <li><small><a href="mailto:sam@samlr.com" target="_blank">Email</a></small></li>
+            <li><strong>|</strong></li>
+            <li><small><a href="https://twitter.com/sam_cook">Twitter</a></small></li>
+            <li><strong>|</strong></li>
+            <li><small><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></small></li>
+            <li><strong>|</strong></li>
+            <li><small><a href="https://github.com/SamLR">GitHub</a></small></li>
+            <li><strong>|</strong></li>
+            <li><small><a href="http://www.flickr.com/photos/samlr/">flickr</a></small></li>
+          </ul>
+        </footer>
       </div>
     </div>
   </div>
+  {% block scripts %}
+  {# ### Scripts block ### #}
+  {% endblock scripts %}
 </body>
 </html>
