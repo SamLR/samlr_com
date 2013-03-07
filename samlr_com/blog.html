@@ -2,38 +2,38 @@
 layout: post
 --- End YAML front matter ---
 {% block body %}
-  <p>My most recent blog entries:</p>
-  <div class="accordion" id="accordion1">
-    {# {% for year in site.posts|groupby(attribute="date.year") %} #}
-    {# {{ year.grouper }} #}      
-    {% for month in site.posts|groupby(attribute="date.month")|reverse %}
-    <div class="accordion-group">
-      <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse{{ month.grouper }}">
-          {{ month.grouper }}
-        </a>
+<p>My most recent blog entries:</p>
+<div class="accordion" id="accordion2">
+  {#
+    TODO Look at making the accordion boxes disappear? Possibly override  border
+  #}
+  {% for month in site.posts|groupby(attribute="date.month")|reverse %}
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ month.grouper }}">
+        {{ month.grouper | get_month_str }}
+      </a>
+    </div>
+    <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
+      <div class="accordion-inner">
+        <dl class="dl-horizontal">
+          {% for post in month.list | reverse %}
+            <dt>
+              <a href="{{ post.url }}">{{ post.date.strftime('%d') }} {{ post.title }}</a>
+            </dt>
+            <dd>
+              {{ post.metadata['summary'] }}
+            </dd>
+          {% endfor %}
+        </dl>
       </div>
-      <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
-        <div class="accordion-inner">
-          {% for post in month.list %}
-          <p><a href="{{ post.url }}">{{ post.date.strftime('%d') }} {{ post.title }}</a></p>
-          {% endfor %} {# End the 'day' loop #}
-        </div>
-      </div>
-    </div>              
-    {% endfor %} {# End the 'month' loop #}
-    {# </div> #}
-    {# {% endfor %} #} {# End the 'year' loop #} 
+    </div>
   </div>
-{# <script src="../bootstrap/js/bootstrap-transition.js"></script> #}
-{# <script src="../bootstrap/js/bootstrap-collapse.js"></script> #}
-
-{# <script type="text/javascript">$(".collapse").collapse()</script> #}
-
-<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
-<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-<script type="text/javascript">$('.collapse').collapse()</script>
+  {% endfor %}
+</div>
 {% endblock body %}
 
-
-{# #}
+{% block scripts %}
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+{% endblock scripts %}
