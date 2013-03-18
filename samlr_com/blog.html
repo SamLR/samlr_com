@@ -1,8 +1,8 @@
 ----- YAML front matter -----
-layout: post
+layout: base
 --- End YAML front matter ---
 {% block body %}
-<p>My most recent blog entries:</p>
+<p>My recent postings:</p>
 <div class="accordion" id="accordion2">
   {#
     TODO Look at making the accordion boxes disappear? Possibly override  border
@@ -17,9 +17,9 @@ layout: post
     <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
       <div class="accordion-inner">
         <dl class="dl-horizontal">
-          {% for post in month.list | reverse %}
+          {% for post in month.list | sort(attribute="date.day", reverse=true) %}
             <dt>
-              <a href="{{ post.url }}">{{ post.date.strftime('%d') }} {{ post.title }}</a>
+              <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
             </dt>
             <dd>
               {{ post.metadata['summary'] }}
@@ -32,6 +32,18 @@ layout: post
   {% endfor %}
 </div>
 {% endblock body %}
+
+{% block rightside %}
+<p>
+    &nbsp;
+</p>
+<p>
+    I blog about what I want and when I want. a lot of this stuff will be write ups of projects I'm on with the occasional extended comment on someone else's work. As much as possible I'll try to keep it interesting but I make no promises. 
+</p>
+<p>
+    Posts are arranged by month and, when I get beyond year one, year. At some later date I will possibly add tagging.
+</p>
+{% endblock rightside %}
 
 {% block scripts %}
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>

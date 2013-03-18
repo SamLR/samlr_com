@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SamLR.com</title>
+  <title>SamLR.com {{ page.title | replace("_", " ") }}</title>
   <meta property="og:title" content="SamLR.com"/>
   <meta name="description" content="The personal site of Sam Cook"/>
   <meta name="og:description" content="The personal site of Sam Cook"/>
@@ -41,10 +41,17 @@
         </h1>
       </div>
       <div class="span3 offset3">
-        <!-- hack to align navpills with bottom of 'SamLR.com' -->
-        <ul class="nav nav-pills pull-right" style="margin-top:10px;"> 
-          {% block navbar %}
-          {% endblock navbar %}
+        {% set navigation_bar = [
+            ('/', 'home', 'home'),
+            ('/blog.html', 'blog', 'blog'),
+            ('/about_me.html', 'about', 'about me')
+        ] %}
+        {% set active_page = active_page|default('blog') %}
+        <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
+        {% for href, id, caption in navigation_bar %}
+          <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+        {% endfor %}
+        </ul>
         </ul>
       </div>
     </div>

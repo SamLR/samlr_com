@@ -1,14 +1,19 @@
 {% extends "base" %}
 
-{% block navbar %}
-<!-- <ul class="nav nav-pills"> -->
-  <li><a href="/index.html">Home</a></li>
-  <li class="active">
-    <a href="/blog.html">Blog</a>
-  </li>
-  <li><a href="/about_me.html">About</a></li>
-<!-- </ul> -->
-{% endblock %}
-
 {% block body %}
+    <h2>
+        {{ page.title | replace("_"," ") }} 
+    </h2>
+    {% block post_body %}
+    {# Have the posts write into this block, not body #}
+    {% endblock post_body %}
+
+<p>
+    <small>Posted: {{ page.date.day }}th {{ page.date.month | get_month_str }} {{ page.date.strftime("%Y") }}</small>
+</p>
 {% endblock body %}
+{% block rightside %}
+    <h2>&nbsp;</h2> {# hack to get nice alignment at the top #}
+    {% block post_right %}
+    {% endblock post_right %}
+{% endblock rightside %}

@@ -1,24 +1,42 @@
 --- YAML!
 layout: base
 ---
-{% block navbar %}
-    <li class="active">
-      <a href="/">Home</a>
-    </li>
-    <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/about_me.html">About</a></li>
-    <a></a>
-{% endblock %}
+{% set active_page="home" %}
+
 {% block body %}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="well">
+    <H4>Hello...</H4>
+    <p>
+        ...And welcome to my blog, well that's mainly what this is. I mainly write about what ever interests me and that can be many things: projects, games I've played, science or anything else that catches my interest. 
+    </p>
+    <p>
+        If you want to know more about me here's the <a href="/about_me.html">about me</a> pages and at the bottom of the page are links to my various profiles.
+    </p>
+</div>
+<p><strong>Most recent blog post</strong></p>
+<dl class="dl">
+    <dt>
+        {% set blog=(site.posts | sort(reverse=true, attribute="date") | first()) %}
+        <a href="{{ blog.url }}">
+            {{ blog.date.strftime("%Y-%m-%d") }} {{ blog.title }}
+        </a>
+    </dt>
+    <dd>
+        {{ blog.metadata['summary'] }}
+    </dd>
+</dl>
+{% endblock body%}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+{% block rightside %}
+<div>
+    <img src="images/mug_shot.jpg" width="75%" alt="Mug Shot" class="img-rounded">
+    <p>
+        <small>Copyright 2012 <a href="http://www.flickr.com/photos/hllns/7908610662/">David Sullivan</a></small>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+        <small>What I look like whilst talking about physics after 3 days running a festival...</small>
+    </p>
+</div>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-{% endblock%}
+{% endblock rightside %}
