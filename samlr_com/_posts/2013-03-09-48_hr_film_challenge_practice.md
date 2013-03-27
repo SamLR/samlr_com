@@ -2,6 +2,7 @@
 layout: post
 summary: A brief write up of our practice 48 hour film challenge
 ---- END YAML HEADER ----
+
 {% block post_body %}
 This weekend I did something stupid. 
 
