@@ -11,10 +11,10 @@ site_dir="samlr_com"
 publish_dir="../published"
 exe="python3 $tachikoma_dir/tachikoma.py samlr_com"
 # exe="python3 test.py"
-uncommited_changes="git status --porcelain --ignore-submodules"
+uncommited_changes=`git status --porcelain --ignore-submodules`
 if [[ $uncommited_changes ]]; then
 	echo "There are uncommited changes, please commit them or revert them before publishing"
-	$uncommited_changes
+	echo "$uncommited_changes"
 	exit 1
 fi
 
