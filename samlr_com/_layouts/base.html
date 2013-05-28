@@ -1,93 +1,95 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SamLR.com {{ page.title | replace("_", " ") }}</title>
-  <meta property="og:title" content="SamLR.com"/>
-  <meta name="description" content="The personal site of Sam Cook"/>
-  <meta name="og:description" content="The personal site of Sam Cook"/>
-  <meta property="og:url" content="https://www.samlr.com"/>
-  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <style type="text/css" media="screen">
-  /* Leave room at the bottom for the floating footer */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamLR.com {{ page.title | replace("_", " ") }}</title>
+    <meta property="og:title" content="SamLR.com"/>
+    <meta name="description" content="The personal site of Sam Cook"/>
+    <meta name="og:description" content="The personal site of Sam Cook"/>
+    <meta property="og:url" content="https://www.samlr.com"/>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css" media="screen">
+    /* Leave room at the bottom for the floating footer */
     body{
-      padding-bottom: 42px;
+        padding-bottom: 42px;
     }
     /* The following makes the footer bar centered based on: http://stackoverflow.com/questions/10568103/modify-twitter-bootstrap-navbar*/
     .center.navbar .nav,
     .center.navbar .nav > li {
-      float:none;
-      display:inline-block;
-      *display:inline; /* ie7 fix */
-      *zoom:1; /* hasLayout ie7 trigger */
-      vertical-align: top;
+        float:none;
+        display:inline-block;
+        *display:inline; /* ie7 fix */
+        *zoom:1; /* hasLayout ie7 trigger */
+        vertical-align: top;
     }
     .center .navbar-inner {
-      text-align:center;
+        text-align:center;
     }
     .center .dropdown-menu {
-      text-align: left;
+        text-align: left;
     }
-  </style>
-  <link rel="icon" href="../images/SamLR_favicon.gif" type="image/gif">
+    </style>
+    <link rel="icon" href="../images/SamLR_favicon.gif" type="image/gif">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row-fluid">      
-      <div class="span4 offset1">
-        <h1>
-          <a href="/">SamLR.com</a>
-        </h1>
-      </div>
-      <div class="span3 offset3">
-        {% set navigation_bar = [
-            ('/', 'home', 'home'),
-            ('/blog.html', 'blog', 'blog'),
-            ('/about_me.html', 'about', 'about me')
-        ] %}
-        {% set active_page = active_page|default('blog') %}
-        <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
-        {% for href, id, caption in navigation_bar %}
-          <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
-        {% endfor %}
-        </ul>
-        </ul>
-      </div>
+    <div class="container-fluid">
+        <div class="row-fluid">      
+            <div class="span4 offset1">
+                <h1>
+                    <a href="/">SamLR.com</a>
+                </h1>
+            </div>
+            <div class="span3 offset3">
+                {% set navigation_bar = [
+                    ('/', 'home', 'home'),
+                    ('/blog.html', 'blog', 'blog'),
+                    ('/about_me.html', 'about', 'about me')
+                    ] %}
+                    {% set active_page = active_page|default('blog') %}
+                    <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
+                        {% for href, id, caption in navigation_bar %}
+                        <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        {# ### BODY ### #}
+        <div class="row-fluid span10 offset1">
+            {% block _main %}
+            <div class="span7">
+                {% block body %}
+                {% endblock body %}
+            </div>
+            <div class="span4">
+                {% block rightside %}
+                {% endblock rightside %}
+            </div>
+            {% endblock _main %}
+        </div>
+        {# ### FOOTER ### #}
+        <div class="navbar navbar-fixed-bottom center">
+            <div class="navbar-inner">
+                <footer>
+                    <ul class="inline">
+                        <li><micro><muted><small>Find me:</small></muted></micro></li>
+                        <li><small><a href="mailto:sam@samlr.com" target="_blank">Email</a></small></li>
+                        <li><strong>|</strong></li>
+                        <li><small><a href="https://twitter.com/sam_cook">Twitter</a></small></li>
+                        <li><strong>|</strong></li>
+                        <li><small><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></small></li>
+                        <li><strong>|</strong></li>
+                        <li><small><a href="https://github.com/SamLR">GitHub</a></small></li>
+                        <li><strong>|</strong></li>
+                        <li><small><a href="http://www.flickr.com/photos/samlr/">flickr</a></small></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
     </div>
-    {# ### BODY ### #}
-    <div class="row-fluid span10 offset1">
-      <div class="span5">
-        {% block body %}
-        {% endblock body %}
-      </div>
-      <div class="span5">
-        {% block rightside %}
-        {% endblock rightside %}
-      </div>
-    </div>
-    {# ### FOOTER ### #}
-    <div class="navbar navbar-fixed-bottom center">
-      <div class="navbar-inner">
-        <footer>
-          <ul class="inline">
-            <li><micro><muted><small>Find me:</small></muted></micro></li>
-            <li><small><a href="mailto:sam@samlr.com" target="_blank">Email</a></small></li>
-            <li><strong>|</strong></li>
-            <li><small><a href="https://twitter.com/sam_cook">Twitter</a></small></li>
-            <li><strong>|</strong></li>
-            <li><small><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></small></li>
-            <li><strong>|</strong></li>
-            <li><small><a href="https://github.com/SamLR">GitHub</a></small></li>
-            <li><strong>|</strong></li>
-            <li><small><a href="http://www.flickr.com/photos/samlr/">flickr</a></small></li>
-          </ul>
-        </footer>
-      </div>
-    </div>
-  </div>
-  {% block scripts %}
-  {# ### Scripts block ### #}
-  {% endblock scripts %}
+    {% block scripts %}
+    {# ### Scripts block ### #}
+    {% endblock scripts %}
 </body>
 </html>

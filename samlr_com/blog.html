@@ -1,46 +1,44 @@
 ----- YAML front matter -----
 layout: base
 --- End YAML front matter ---
-{% block body %}
-<p>My recent postings:</p>
-<div class="accordion" id="accordion2">
-  {#
-    TODO Look at making the accordion boxes disappear? Possibly override  border
-  #}
-  {% for month in site.posts|groupby(attribute="date.month")|reverse %}
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ month.grouper }}">
-        {{ month.grouper | get_month_str }}
-      </a>
+{% block _main %}
+<div class="span5">
+    <p>My recent postings:</p>
+    <div class="accordion" id="accordion2">
+        {% for month in site.posts|groupby(attribute="date.month")|reverse %}
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ month.grouper }}">
+                    {{ month.grouper | get_month_str }}
+                </a>
+            </div>
+            <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
+                <div class="accordion-inner">
+                    <dl class="dl-horizontal">
+                        {% for post in month.list | sort(attribute="date.day", reverse=true) %}
+                        <dt>
+                            <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
+                        </dt>
+                        <dd>
+                            {{ post.metadata['summary'] }}
+                        </dd>
+                        {% endfor %}
+                    </dl>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
-      <div class="accordion-inner">
-        <dl class="dl-horizontal">
-          {% for post in month.list | sort(attribute="date.day", reverse=true) %}
-            <dt>
-              <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
-            </dt>
-            <dd>
-              {{ post.metadata['summary'] }}
-            </dd>
-          {% endfor %}
-        </dl>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
 </div>
-{% endblock body %}
-
-{% block rightside %}
-<p>
-    &nbsp;
-</p>
-<p>
-    I blog about what I want and when I want. A lot of this stuff will be write ups of projects I'm on with the occasional extended comment on someone else's work. As much as possible I'll try to keep it interesting but I make no promises. 
-</p>
-{% endblock rightside %}
+<div class="span5">
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        I blog about what I want and when I want. A lot of this stuff will be write ups of projects I'm on with the occasional extended comment on someone else's work. As much as possible I'll try to keep it interesting but I make no promises. 
+    </p>
+</div>
+{% endblock _main %}
 
 {% block scripts %}
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>

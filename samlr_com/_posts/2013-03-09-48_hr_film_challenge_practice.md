@@ -22,7 +22,7 @@ There's one obvious lack from all this: the footage, well that's not been edited
 
 {% block post_right %}
 **Fun Fact:** I do these things voluntarily, here are some of the previous ones I've helped with:
-<dl class="dl-horizontal">
+<dl>
 <dt>[Moonstones](http://www.youtube.com/watch?v=zm0xwJfwMzY "Youtube")</dt>
 <dd>This was a 48-hr job for last year's [Sci-fi London](http://www.sci-fi-london.com/ "Sci-fi London") Challenge. It's very silly but was good fun to film</dd>
 <dt>[Together](http://www.youtube.com/watch?v=hHPpj13s71k "Youtube")</dt>
