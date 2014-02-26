@@ -3,3 +3,5 @@ bootstrap
 .DS_Store
 TODO.txt
 *.sublime-*
+.venv
+
