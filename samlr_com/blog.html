@@ -5,28 +5,31 @@ layout: base
 <div class="span5">
     <p>My recent postings:</p>
     <div class="accordion" id="accordion2">
-        {% for month in site.posts|groupby(attribute="date.month")|reverse %}
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ month.grouper }}">
-                    {{ month.grouper | get_month_str }}
-                </a>
-            </div>
-            <div id="collapse{{ month.grouper }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
-                <div class="accordion-inner">
-                    <dl class="dl-horizontal">
-                        {% for post in month.list | sort(attribute="date.day", reverse=true) %}
-                        <dt>
-                            <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
-                        </dt>
-                        <dd>
-                            {{ post.metadata['summary'] }}
-                        </dd>
-                        {% endfor %}
-                    </dl>
+        {% for year in site.posts|groupby(attribute="date.year")|reverse %}
+            {% set very_first = loop.first %}
+            {% for month in year.list|groupby(attribute="date.month")|reverse %}
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ year.grouper }}-{{ month.grouper }}">
+                        {{ year.grouper }} {{ month.grouper | get_month_str }}
+                    </a>
+                </div>
+                <div id="collapse{{ year.grouper }}-{{ month.grouper }}" class="accordion-body collapse{% if very_first %} in{% endif %}">
+                    <div class="accordion-inner">
+                        <dl class="dl-horizontal">
+                            {% for post in month.list | sort(attribute="date.day", reverse=true) %}
+                            <dt>
+                                <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
+                            </dt>
+                            <dd>
+                                {{ post.metadata['summary'] }}
+                            </dd>
+                            {% endfor %}
+                        </dl>
+                    </div>
                 </div>
             </div>
-        </div>
+            {% endfor %}
         {% endfor %}
     </div>
 </div>
