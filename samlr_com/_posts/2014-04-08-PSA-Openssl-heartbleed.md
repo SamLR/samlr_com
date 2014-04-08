@@ -8,3 +8,4 @@ So I'm failing pretty heavily at keeping this updated but here's something worth
 **OpenSSL HAS BEEN FOUND TO HAVE FAIRLY MAJOR BUG**
 
 Full details [here](http://heartbleed.com/ 'heartbleed'). Basically you need to update your ssh keys (delete them and create new ones) and upgrade openSSL to 1.0.1g.
+{% endblock post_body %}
