@@ -1,0 +1,5 @@
+Jinja2==2.7.2
+Markdown==2.4
+MarkupSafe==0.18
+PyYAML==3.10
+mdx-outline==1.02
