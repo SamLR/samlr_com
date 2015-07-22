@@ -7,8 +7,16 @@
 
         color: $main;
     }
+    .header__nav {
+        @extend %grid__item;
+        @extend %one-half;
+
+        li {
+            display: inline-block;
+        }
+    }
 }
 
 .footer {
-    
+
 }

@@ -11,29 +11,8 @@
 
     <!-- Styles -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic' rel='stylesheet' type='text/css'>
-    <link href="css/main.css" rel="stylesheet">
-    <style type="text/css" media="screen">
-    /* Leave room at the bottom for the floating footer */
-    body{
-        padding-bottom: 42px;
-    }
-    /* The following makes the footer bar centered based on: http://stackoverflow.com/questions/10568103/modify-twitter-bootstrap-navbar*/
-    .center.navbar .nav,
-    .center.navbar .nav > li {
-        float:none;
-        display:inline-block;
-        *display:inline; /* ie7 fix */
-        *zoom:1; /* hasLayout ie7 trigger */
-        vertical-align: top;
-    }
-    .center .navbar-inner {
-        text-align:center;
-    }
-    .center .dropdown-menu {
-        text-align: left;
-    }
-    </style>
-    <link rel="icon" href="images/samlr_favicon.gif" type="image/gif">
+    <link href="/css/main.css" rel="stylesheet">
+    <link rel="icon" href="/images/samlr_favicon.gif" type="image/gif">
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -54,19 +33,19 @@
     <header class="header">
         <div class="header__title">
             <h1><a href="/">SamLR.com</a></h1>
-        </div>
-        <nav class="header__nav">
+        </div>{#
+      #}<nav class="header__nav">
             {% set navigation_bar = [
                 ('/', 'home', 'home'),
                 ('/blog.html', 'blog', 'blog'),
                 ('/about_me.html', 'about', 'about me')
                 ] %}
-                {% set active_page = active_page|default('blog') %}
-                <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
-                    {% for href, id, caption in navigation_bar %}
-                    <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
-                    {% endfor %}
-                </ul>
+            {% set active_page = active_page|default('blog') %}
+            <ul id="navigation" class="nav nav-pills pull-right"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
+                {% for href, id, caption in navigation_bar %}
+                <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                {% endfor %}
+            </ul>
         </nav>
     </header>
 

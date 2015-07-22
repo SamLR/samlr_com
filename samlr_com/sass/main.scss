@@ -1,9 +1,10 @@
+/* Variables to init everything */
+@import 'variables';
 
-/* Variable for css wizardry */
-$use-silent-classes: true;
+/* Vendor stuff */
 @import 'modules/reset';
 @import 'modules/csswizardry-grids';
 
-@import 'variables';
+/* My stuff */
 @import 'modules/base';
 @import 'modules/layout';

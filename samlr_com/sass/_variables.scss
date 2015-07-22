@@ -1,9 +1,14 @@
 /*
+ * Variable for css wizardry 
+ */
+$use-silent-classes: true;
+
+/*
  * Colours
  */
 
 $main:         #0080C0;
-$background:   #EDF6FA;
+$background:   #F0F0F2;
 $text:         #002B40;
 $text-lighter: #003B59;
 $link:         $main;
