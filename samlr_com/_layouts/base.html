@@ -8,7 +8,10 @@
     <meta name="description" content="The personal site of Sam Cook"/>
     <meta name="og:description" content="The personal site of Sam Cook"/>
     <meta property="og:url" content="https://www.samlr.com"/>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- Styles -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet">
     <style type="text/css" media="screen">
     /* Leave room at the bottom for the floating footer */
     body{
@@ -30,7 +33,7 @@
         text-align: left;
     }
     </style>
-    <link rel="icon" href="../images/samlr_favicon.gif" type="image/gif">
+    <link rel="icon" href="images/samlr_favicon.gif" type="image/gif">
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -48,28 +51,26 @@
     </script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row-fluid">      
-            <div class="span4 offset1">
-                <h1>
-                    <a href="/">SamLR.com</a>
-                </h1>
-            </div>
-            <div class="span3 offset3">
-                {% set navigation_bar = [
-                    ('/', 'home', 'home'),
-                    ('/blog.html', 'blog', 'blog'),
-                    ('/about_me.html', 'about', 'about me')
-                    ] %}
-                    {% set active_page = active_page|default('blog') %}
-                    <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
-                        {% for href, id, caption in navigation_bar %}
-                        <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </ul>
-            </div>
+    <header class="header">
+        <div class="header__title">
+            <h1><a href="/">SamLR.com</a></h1>
         </div>
+        <nav class="header__nav">
+            {% set navigation_bar = [
+                ('/', 'home', 'home'),
+                ('/blog.html', 'blog', 'blog'),
+                ('/about_me.html', 'about', 'about me')
+                ] %}
+                {% set active_page = active_page|default('blog') %}
+                <ul id="navigation" class="nav nav-pills pull-right" style="margin-top:10px;"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
+                    {% for href, id, caption in navigation_bar %}
+                    <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                    {% endfor %}
+                </ul>
+        </nav>
+    </header>
+
+
         {# ### BODY ### #}
         <div class="row-fluid span10 offset1">
             {% block _main %}
@@ -83,25 +84,23 @@
             </div>
             {% endblock _main %}
         </div>
+
+
         {# ### FOOTER ### #}
-        <div class="navbar navbar-fixed-bottom center">
-            <div class="navbar-inner">
-                <footer>
-                    <ul class="inline">
-                        <li><micro><muted><small>Find me:</small></muted></micro></li>
-                        <li><small><a href="mailto:sam@samlr.com" target="_blank">Email</a></small></li>
-                        <li><strong>|</strong></li>
-                        <li><small><a href="https://twitter.com/sam_cook">Twitter</a></small></li>
-                        <li><strong>|</strong></li>
-                        <li><small><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></small></li>
-                        <li><strong>|</strong></li>
-                        <li><small><a href="https://github.com/SamLR">GitHub</a></small></li>
-                        <li><strong>|</strong></li>
-                        <li><small><a href="http://www.flickr.com/photos/samlr/">flickr</a></small></li>
-                    </ul>
-                </footer>
-            </div>
-        </div>
+        <footer class="footer">
+            <ul class="inline">
+                <li><micro><muted><small>Find me:</small></muted></micro></li>
+                <li><h5><a href="mailto:sam@samlr.com" target="_blank">Email</a></h5></li>
+                <li><strong>|</strong></li>
+                <li><h5><a href="https://twitter.com/sam_cook">Twitter</a></h5></li>
+                <li><strong>|</strong></li>
+                <li><h5><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></h5></li>
+                <li><strong>|</strong></li>
+                <li><h5><a href="https://github.com/SamLR">GitHub</a></h5></li>
+                <li><strong>|</strong></li>
+                <li><h5><a href="http://www.flickr.com/photos/samlr/">flickr</a></h5></li>
+            </ul>
+        </footer>
     </div>
     {% block scripts %}
     {# ### Scripts block ### #}

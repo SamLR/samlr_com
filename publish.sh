@@ -35,6 +35,9 @@ elif [[ $current_branch != $publish_branch ]]; then
 fi
 commit_msg=`git log -1 --pretty=%B`
 
+echo "HAVE YOU ADDED THE GULP STEP?"
+exit 1
+
 # Re-run Tachikoma
 $exe 
 # Copy everything across 

@@ -5,3 +5,5 @@ TODO.txt
 *.sublime-*
 .venv
 node_modules
+.sass-cache
+css

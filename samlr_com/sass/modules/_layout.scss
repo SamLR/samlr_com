@@ -1,0 +1,14 @@
+.header {
+    @extend %grid;
+
+    .header__title {
+        @extend %grid__item;
+        @extend %one-half;
+
+        color: $main;
+    }
+}
+
+.footer {
+    
+}

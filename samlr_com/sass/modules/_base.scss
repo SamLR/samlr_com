@@ -1,0 +1,51 @@
+body {
+    font-size: $base-font-size;
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+
+    color: $text;
+    background-color: $background;
+}
+
+h1, h2, h3, h4 {
+  color: $text-lighter;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+strong {
+  color: $text-lighter;
+  font-weight: 700;
+}
