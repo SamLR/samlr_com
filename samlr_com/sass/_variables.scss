@@ -3,6 +3,20 @@
  */
 $use-silent-classes: true;
 
+/* 
+ * Break points
+ */
+$palm: '(max-width: 480px)';
+$lap: '(min-width: 481px) and (max-width: 1023px)';
+$portable: '(max-width: 1023px)';
+$desk: '(min-width: 1024px)';
+
+$breakpoints: (
+    'palm' $palm,
+    'lap' $lap,
+    'portable' $portable,
+    'desk' $desk 
+) !default;
 /*
  * Colours
  */

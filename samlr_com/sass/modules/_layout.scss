@@ -1,22 +1,25 @@
-.header {
+.header,
+.footer,
+.content {
     @extend %grid;
+}
 
-    .header__title {
-        @extend %grid__item;
-        @extend %one-half;
-
-        color: $main;
-    }
-    .header__nav {
-        @extend %grid__item;
-        @extend %one-half;
-
-        li {
-            display: inline-block;
-        }
-    }
+.header__nav,
+.header__title {
+    @extend %grid__item;
+    @extend %one-half;
 }
 
 .footer {
+    @extend %grid--center;
 
+    .footer__links {
+        @extend %grid__item;
+        @extend %one-half;
+        text-align: center;
+    }
 }
+
+.header__title { color: $main; }
+
+.header__nav { text-align: right; }

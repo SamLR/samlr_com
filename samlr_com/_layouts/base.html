@@ -30,18 +30,19 @@
     </script>
 </head>
 <body>
+    {# ### Header ### #}
     <header class="header">
         <div class="header__title">
             <h1><a href="/">SamLR.com</a></h1>
         </div>{#
-      #}<nav class="header__nav">
+        #}<nav class="header__nav">
             {% set navigation_bar = [
                 ('/', 'home', 'home'),
                 ('/blog.html', 'blog', 'blog'),
                 ('/about_me.html', 'about', 'about me')
                 ] %}
             {% set active_page = active_page|default('blog') %}
-            <ul id="navigation" class="nav nav-pills pull-right"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
+            <ul id="navigation" class="inline-list"> <!-- hack to align navpills with bottom of 'SamLR.com' -->
                 {% for href, id, caption in navigation_bar %}
                 <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
                 {% endfor %}
@@ -50,37 +51,36 @@
     </header>
 
 
-        {# ### BODY ### #}
-        <div class="row-fluid span10 offset1">
-            {% block _main %}
-            <div class="span7">
-                {% block body %}
-                {% endblock body %}
-            </div>
-            <div class="span4">
-                {% block rightside %}
-                {% endblock rightside %}
-            </div>
-            {% endblock _main %}
+    {# ### BODY ### #}
+    <div class="row-fluid span10 offset1">
+        {% block _main %}
+        <div class="span7">
+            {% block body %}
+            {% endblock body %}
         </div>
-
-
-        {# ### FOOTER ### #}
-        <footer class="footer">
-            <ul class="inline">
-                <li><micro><muted><small>Find me:</small></muted></micro></li>
-                <li><h5><a href="mailto:sam@samlr.com" target="_blank">Email</a></h5></li>
-                <li><strong>|</strong></li>
-                <li><h5><a href="https://twitter.com/sam_cook">Twitter</a></h5></li>
-                <li><strong>|</strong></li>
-                <li><h5><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></h5></li>
-                <li><strong>|</strong></li>
-                <li><h5><a href="https://github.com/SamLR">GitHub</a></h5></li>
-                <li><strong>|</strong></li>
-                <li><h5><a href="http://www.flickr.com/photos/samlr/">flickr</a></h5></li>
-            </ul>
-        </footer>
+        <div class="span4">
+            {% block rightside %}
+            {% endblock rightside %}
+        </div>
+        {% endblock _main %}
     </div>
+
+
+    {# ### FOOTER ### #}
+    <footer class="footer">
+        <ul class="inline-list footer__links">
+            <li><micro><muted><small>Find me:</small></muted></micro></li>
+            <li><h5><a href="mailto:sam@samlr.com" target="_blank">Email</a></h5></li>
+            <li><strong>|</strong></li>
+            <li><h5><a href="https://twitter.com/sam_cook">Twitter</a></h5></li>
+            <li><strong>|</strong></li>
+            <li><h5><a href="https://www.linkedin.com/pub/sam-cook/35/54b/8b1">LinkedIn</a></h5></li>
+            <li><strong>|</strong></li>
+            <li><h5><a href="https://github.com/SamLR">GitHub</a></h5></li>
+            <li><strong>|</strong></li>
+            <li><h5><a href="http://www.flickr.com/photos/samlr/">flickr</a></h5></li>
+        </ul>
+    </footer>
     {% block scripts %}
     {# ### Scripts block ### #}
     {% endblock scripts %}
