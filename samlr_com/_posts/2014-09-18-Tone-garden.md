@@ -13,7 +13,7 @@ If I don't fail at finishing things then there are a couple of things I want to 
  * Better visuals. At all. The current hope would be to write some sort of zen garden generator with the red boxes replaced by rocks. The white background would be replaced by some sort of gravel affect which would then get pleasingly racked into the typical patterns.
  * Maybe other stuff as well as rocks depending on how the natural noises go.
 
-If you're interested the project is on [github](https://github.com/SamLR/tone_garden "hub it!") and the source code is [here](../docs/app.js "sourcey!").
+If you're interested the project is on [github](https://github.com/SamLR/tone_garden "hub it!") and the source code is [here](../docs/tone-garden.js "sourcey!").
 
 ------
 
@@ -26,7 +26,7 @@ If you're interested the project is on [github](https://github.com/SamLR/tone_ga
 <canvas id="garden">
     Your browser does not support HTML5's 'canvas' tags.
 </canvas>
-<script src="../docs/app.js"></script>
+<script src="../docs/tone-garden.js"></script>
 
 {% endblock post_body %}
 

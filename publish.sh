@@ -36,8 +36,6 @@ fi
 commit_msg=`git log -1 --pretty=%B`
 
 echo "HAVE YOU ADDED THE GULP STEP?"
-echo "HAVE YOU ADDED STYLE FOR TABLES?"
-echo "HAVE YOU ADDED STYLE FOR WARNINGS?"
 
 exit 1
 

@@ -3,7 +3,7 @@ layout: post
 summary: My initial thoughts on Google's "Go"
 ---- END YAML HEADER ----
 {% block post_body %}
-<div class="well">
+<div class="breakout-block">
 **Health Warning**
 
 1. I'm not a ninja/guru/neckbeard so it's very likely that what ever I say here is wrong
