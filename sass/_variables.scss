@@ -27,11 +27,12 @@ $breakpoints: (
 /*
  * Colours
  */
-$main:         #0080C0;
-$background:   #F0F0F2;
-$text:         #002B40;
-$text-lighter: #003B59;
-$link:         $main;
+$main:           #0080C0;
+$background:     #F0F0F2;
+$alt-background: #FFFFFF;
+$text:           #002B40;
+$text-lighter:   #003B59;
+$link:           $main;
 
 /* 
  * Font styles
@@ -54,9 +55,6 @@ $h3-font-size: 1.17 * $base-font-size;
 $h4-font-size: 1    * $base-font-size;
 $h5-font-size: 0.83 * $base-font-size;
 $h6-font-size: 0.67 * $base-font-size;
-
-// The amount lists and blockquotes are indented.
-$indent-amount: 40px;
 
 $border: 1px solid $text;
 $border-radius: 4px;

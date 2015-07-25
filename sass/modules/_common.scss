@@ -1,25 +1,18 @@
-/* 
- * Either stuff that is on all pages (e.g. header/footer) OR common styles
- * (e.g. inline lists)
- */
-
-.header {
-  margin-bottom: $gutter;
-  .header__title { color: $main; }
-  .header__nav { text-align: right; }
-  .active { @extend %bold; }
+.content__posted {
+  text-align: right;
+  margin: 0;
+  margin-top: -15px;
 }
 
-.inline-list li { display: inline-block; }
-
-.footnote {
-  $para-spacing: 0.5 * $gutter;
-
-  margin-top: $gutter;
-  padding-top: $para-spacing;
-  font-size: $h5-font-size;
-  border-top: 1px solid $text;
-  p {
-    margin-bottom: $para-spacing;
+.inline-list li {
+  padding: 0;
+  display: inline-block;
+  &:before {
+    content: '';
   }
+}
+
+.text-right {
+  text-align: right;
+  font-style: normal;
 }

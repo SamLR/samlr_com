@@ -21,19 +21,19 @@ pre {
   padding-right: $gutter;
 
   font-family: $mono-font-family;
-  background-color: white;
+  background-color: $alt-background;
   overflow-x: scroll;
 }
 
 ol { padding-left: $gutter; }
 
-h1, h2, h3, h4, h5, h6,
-p, div, dl, ul, ol {
-  margin-bottom: $gutter / 2;
-}
-
-h1, h2, h3, h4, h5, h6 { margin-top:    $gutter; }
+/* 
+ * Set margins for block elements. Don't set on h1 tag as that's only used for
+ * for the header.
+ */
+h2, h3, h4, h5, h6 { margin-top:    $gutter; }
 p, div, dl, ul, ol { margin-top:    $gutter / 2; }
+h2, h3, h4, h5, h6, p, div, dl, ul, ol { margin-bottom: $gutter / 2; }
 
 /* 2 headers in a row shrink the gap */
 h2 + h3, h3 + h4, h4 + h5 { margin-top: $gutter / 2; }
@@ -77,4 +77,22 @@ img {
   max-height: 400px;
   max-width: 300px;
   border-radius: $border-radius
+}
+
+blockquote {
+  font-style: italic;
+  padding-left: $gutter;
+  border-left: 4px solid $alt-background;
+}
+
+li {
+  padding-left: $gutter;
+  position: relative;
+  &:before {
+    @extend %bold;
+    content: '-';
+    position: absolute;
+    left: 15px;
+    top: -2px;
+  }
 }

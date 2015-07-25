@@ -17,11 +17,11 @@ That said; on with the post...
 I'm soon to be starting a new job, as part of this I'll be using Google's "[Go](http://golang.org/ "Go, go gadget links!")" programming language[[2](#footnote2)<a id="jumpback2"></a>] for some of the systems work, obviously, rather than work on my PhD, which is less fun and what I should be doing, I decided to start looking at Go.
 
 According to the font of all knowledge ([Wikipedia](http://en.wikipedia.org/wiki/Go_(programming_language) "It's OK to reference it in a blog!")) Go is an:
-<blockquote class="pull-right">
-  <p>
-    "open source, compiled, garbage-collected, concurrent systems programming language"
+<blockquote>
+  Open source, compiled, garbage-collected, concurrent systems programming language
+  <p class="text-right">
+    <small>...says, some guy on <cite title="Wikipedia">[Wikipedia](http://en.wikipedia.org/wiki/Go_(programming_language) "So many 'Gos'....")</cite></small>
   </p>
-   <small>...says, some guy on <cite title="Wikipedia">[Wikipedia](http://en.wikipedia.org/wiki/Go_(programming_language) "So many 'Gos'....")</cite></small> 
 </blockquote>
 it uses C-style syntax with a smattering of new features. The focus of this post is going to be purely my first impressions having worked through the [go-tour](http://tour.golang.org "See the sites!") and the language [spec](http://golang.org/ref/spec "Specification. Hopefully not too speculative").
 

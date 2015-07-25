@@ -12,16 +12,23 @@
   @extend %grid__item;
 }
 
-/* Split the header 50/50 title/buttons */
-.header__nav,
-.header__title {
-  @extend %one-half;
-}
+/*
+ * Header stuff
+ * Split the header 50/50 title/buttons
+ */
+.header__nav, .header__title { @extend %one-half; }
+.header__title { color: $main; }
+.header__nav { text-align: right; }
+.header__nav .active { @extend %bold; }
 
-/* Main content is 60/30 body to aside */
+/*
+ * Body stuff
+ * Main content is 60/30 body to aside
+ */
 .content__main {
   @extend %lap--two-thirds;
-  @extend %desk--two-thirds; 
+  @extend %desk--two-thirds;
+  margin: 0;
 }
 
 .content__aside {
@@ -29,10 +36,24 @@
   @extend %desk--one-third; 
 }
 
-/* Footer is centered and 1/2 */
+/*
+ * Footer stuff
+ * Footer is centered and 1/2
+ */
 .footer { @extend %grid--center; }
 
 .footer__links {
   @extend %one-half;
   text-align: center;
+}
+
+.footnote {
+  $para-spacing: $gutter / 2;
+
+  margin-top: $gutter;
+  padding-top: $para-spacing;
+  font-size: $h5-font-size;
+  border-top: 1px solid $text;
+
+  p { margin-bottom: $para-spacing; }
 }

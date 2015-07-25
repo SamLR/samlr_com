@@ -54,18 +54,18 @@
     </header>
 
     {# ### BODY ### #}
-    <div class="content">
+    <section class="content">
         {% block _main %}
         <div class="content__main">
             {% block body %}
             {% endblock body %}
         </div>{#
-      #}<div class="content__aside">
+      #}<aside class="content__aside">
             {% block rightside %}
             {% endblock rightside %}
-        </div>
+        </aside>
         {% endblock _main %}
-    </div>
+    </section>
 
     {# ### FOOTER ### #}
     <footer class="footer">

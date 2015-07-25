@@ -1,9 +1,13 @@
 {% extends "base" %}
 
 {% block body %}
+<article>
     <h2>
         {{ page.title | replace("_"," ") }} 
     </h2>
+
+    <p class="content__posted"><small>Posted: {{ page.date.day }}th {{ page.date.month | get_month_str }} {{ page.date.strftime("%Y") }}</small></p>
+
     {% block post_body %}
     {# Have the posts write into this block, not body #}
     {% endblock post_body %}
@@ -13,9 +17,7 @@
         {% endblock footnote %}
     </div>
 
-<p>
-    <small>Posted: {{ page.date.day }}th {{ page.date.month | get_month_str }} {{ page.date.strftime("%Y") }}</small>
-</p>
+</article>
 {% endblock body %}
 {% block rightside %}
     {% block post_right %}
