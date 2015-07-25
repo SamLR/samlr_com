@@ -1,1 +1,12 @@
+/* 
+ * Either stuff that is on all pages (e.g. header/footer) OR common styles
+ * (e.g. inline lists)
+ */
+
+.header {
+  margin-bottom: $gutter;
+  .header__title { color: $main; }
+  .header__nav { text-align: right; }
+}
+
 .inline-list li { display: inline-block; }

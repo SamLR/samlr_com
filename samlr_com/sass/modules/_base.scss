@@ -1,40 +1,37 @@
 body {
-    font-size: $base-font-size;
-    font-family: $base-font-family;
-    line-height: $base-line-height;
+  margin: 18px auto;
+  padding: 0px 15px;
+  max-width: $max-width + 1;
 
-    color: $text;
-    background-color: $background;
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+
+  color: $text;
+  background-color: $background;
 }
 
-h1, h2, h3, h4 {
+p, div, dl, ul, ol { margin-bottom: $gutter; }
+
+%bold {
   color: $text-lighter;
   font-weight: 700;
 }
 
-h1 {
-  font-size: $h1-font-size;
-}
+strong { @extend %bold; }
+h1, h2, h3, h4 { @extend %bold; }
 
-h2 {
-  font-size: $h2-font-size;
-}
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
 
-h3 {
-  font-size: $h3-font-size;
-}
-
-h4 {
-  font-size: $h4-font-size;
-}
-
-h5 {
-  font-size: $h5-font-size;
-}
-
-h6 {
-  font-size: $h6-font-size;
-}
+small { font-size: $h6-font-size; }
 
 a {
   color: $link;
@@ -45,7 +42,7 @@ a {
   }
 }
 
-strong {
-  color: $text-lighter;
-  font-weight: 700;
-}
+dt { @extend %bold; }
+dd { padding-left: $gutter; }
+
+

@@ -1,25 +1,38 @@
-.header,
-.footer,
-.content {
-    @extend %grid;
+/* The entire thing is done as a grid */
+.header, .footer, .content {
+  @extend %grid;
+  @extend %grid__item;
+  @extend %one-whole;
 }
 
+/* All sub elements are grid items */
+.header__nav, .header__title,
+.content__main, .content__aside,
+.footer__links {
+  @extend %grid__item;
+}
+
+/* Split the header 50/50 title/buttons */
 .header__nav,
 .header__title {
-    @extend %grid__item;
-    @extend %one-half;
+  @extend %one-half;
 }
 
-.footer {
-    @extend %grid--center;
-
-    .footer__links {
-        @extend %grid__item;
-        @extend %one-half;
-        text-align: center;
-    }
+/* Main content is 60/30 body to aside */
+.content__main {
+  @extend %lap--two-thirds;
+  @extend %desk--two-thirds; 
 }
 
-.header__title { color: $main; }
+.content__aside {
+  @extend %lap--one-third;
+  @extend %desk--one-third; 
+}
 
-.header__nav { text-align: right; }
+/* Footer is centered and 1/2 */
+.footer { @extend %grid--center; }
+
+.footer__links {
+  @extend %one-half;
+  text-align: center;
+}

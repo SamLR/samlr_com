@@ -36,6 +36,8 @@ fi
 commit_msg=`git log -1 --pretty=%B`
 
 echo "HAVE YOU ADDED THE GULP STEP?"
+echo "HAVE YOU MOVED SASS OUT OF THE SITE DIR?"
+
 exit 1
 
 # Re-run Tachikoma

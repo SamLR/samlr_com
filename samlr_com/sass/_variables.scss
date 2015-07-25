@@ -3,13 +3,19 @@
  */
 $use-silent-classes: true;
 
+/**
+ * Set the spacing between your grid items.
+ */
+$gutter:            24px;
+
 /* 
  * Break points
  */
+$max-width: 1023px;
 $palm: '(max-width: 480px)';
-$lap: '(min-width: 481px) and (max-width: 1023px)';
-$portable: '(max-width: 1023px)';
-$desk: '(min-width: 1024px)';
+$lap: '(min-width: 481px) and (max-width: #{$max-width})';
+$portable: '(max-width: #{$max-width})';
+$desk: '(min-width: #{$max-width + 1})';
 
 $breakpoints: (
     'palm' $palm,
@@ -17,10 +23,10 @@ $breakpoints: (
     'portable' $portable,
     'desk' $desk 
 ) !default;
+
 /*
  * Colours
  */
-
 $main:         #0080C0;
 $background:   #F0F0F2;
 $text:         #002B40;
@@ -31,16 +37,16 @@ $link:         $main;
  * Font styles
  */
 
-// The base font size.
+/* The base font size. */
 $base-font-size: 16px;
 
-// The base line height determines the basic unit of vertical rhythm.
+/* The base line height determines the basic unit of vertical rhythm. */
 $base-line-height: 24px;
 
-// The default font family.
+/* The default font family. */
 $base-font-family: 'Leto', sans-serif;
 
-// The font sizes for h1-h6.
+/* The font sizes for h1-h6. */
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.5  * $base-font-size;
 $h3-font-size: 1.17 * $base-font-size;

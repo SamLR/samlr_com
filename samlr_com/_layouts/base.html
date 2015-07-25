@@ -50,21 +50,19 @@
         </nav>
     </header>
 
-
     {# ### BODY ### #}
-    <div class="row-fluid span10 offset1">
+    <div class="content">
         {% block _main %}
-        <div class="span7">
+        <div class="content__main">
             {% block body %}
             {% endblock body %}
-        </div>
-        <div class="span4">
+        </div>{#
+      #}<div class="content__aside">
             {% block rightside %}
             {% endblock rightside %}
         </div>
         {% endblock _main %}
     </div>
-
 
     {# ### FOOTER ### #}
     <footer class="footer">
@@ -81,6 +79,7 @@
             <li><h5><a href="http://www.flickr.com/photos/samlr/">flickr</a></h5></li>
         </ul>
     </footer>
+
     {% block scripts %}
     {# ### Scripts block ### #}
     {% endblock scripts %}
