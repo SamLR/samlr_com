@@ -30,9 +30,9 @@ if [[ $uncommited_changes ]]; then
 	echo "There are uncommited changes, please commit them or revert them before publishing"
 	echo "$uncommited_changes"
 	exit 1
-elif [[ $current_branch != $publish_branch ]]; then
-	echo "On, $current_branch, not master branch, change and try again"
-	exit 1
+# elif [[ $current_branch != $publish_branch ]]; then
+# 	echo "On, $current_branch, not master branch, change and try again"
+# 	exit 1
 fi
 commit_msg=`git log -1 --pretty=%B`
 
