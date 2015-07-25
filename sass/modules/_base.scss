@@ -85,7 +85,7 @@ blockquote {
   border-left: 4px solid $alt-background;
 }
 
-li {
+ul > li {
   padding-left: $gutter;
   position: relative;
   &:before {
@@ -95,4 +95,22 @@ li {
     left: 15px;
     top: -2px;
   }
+}
+
+table {
+  width:   100%;
+  padding: 10px;
+}
+
+tr {
+  border-bottom: 1px solid $text-lighter;
+  &:last-child { border-bottom: 0; }
+  &.total{ border-top: 2px solid $text-lighter; }
+}
+
+th, td { padding: 8px; }
+
+th {
+  @extend %bold;
+  text-align: left;
 }

@@ -45,7 +45,7 @@ Firstly there's the obvious lack of any explicit "queer" option. Secondly for 3 
 
 So we have 77 possible LG or B techies. Here's the break-down of their responses (I've also included the total responses for 2014):
 
-<table class="table table-condensed table-hover">
+<table>
 <tr><th>Response</th><th>Tech 2014</th><th>Total 2014</th></tr>
 <tr><td>Gay, lesbian or homosexual</td><td>2</td><td>45</td></tr>
 <tr><td>Bisexual</td><td>1</td><td>65</td></tr>
@@ -53,7 +53,7 @@ So we have 77 possible LG or B techies. Here's the break-down of their responses
 <tr><td>Don't know</td><td>0</td><td>6</td></tr>
 <tr><td>No answer</td><td>3</td><td>39</td></tr>
 <tr><td>Not applicable</td><td>4</td><td>188</td></tr>
-<tr class="info"><td>Total</td><td>77</td><td>2,538</td></tr>
+<tr class="total"><td>Total</td><td>77</td><td>2,538</td></tr>
 </table>
 
 If we ignore the "Don't know", "No answer" and "Not applicable" results we end up with 3 LGB respondents and 67 heterosexuals. This gives us 4.2% of tech workers being LGB (as to Q or T, who knows? Not the GSS). Lets talk about that number, firstly:
