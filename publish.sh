@@ -28,17 +28,18 @@ if [[ $uncommited_changes ]]; then
 	echo "There are uncommited changes, please commit them or revert them before publishing"
 	echo "$uncommited_changes"
 	exit 1
-# elif [[ $current_branch != $publish_branch ]]; then
-# 	echo "On, $current_branch, not master branch, change and try again"
-# 	exit 1
+elif [[ $current_branch != $publish_branch ]]; then
+	echo "On, $current_branch, not master branch, change and try again"
+	exit 1
 fi
 commit_msg=`git log -1 --pretty=%B`
 
 $build_cmd
-# Re-run Tachikoma
-echo "HAVE YOU ADDED THE GULP STEP?"
+echo "Add JS accordion"
+echo "Re-write 'about me'"
 
 exit 1
+# Run the build process
 $exe
 # Copy everything across 
 cp -r $site_dir/_site/* $publish_dir
