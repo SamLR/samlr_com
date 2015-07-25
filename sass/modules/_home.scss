@@ -1,8 +1,5 @@
-img.mug-shot {
-    width: 100%;
-    border-radius: 5px;
-
-    @media screen and #{$palm} {
-        display: none;
-    }
+@media screen and #{$palm} {
+  img.mug-shot {
+    display: none;
+  }
 }

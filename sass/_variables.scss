@@ -45,6 +45,7 @@ $base-line-height: 24px;
 
 /* The default font family. */
 $base-font-family: 'Leto', sans-serif;
+$mono-font-family: 'Inconsolata', monospace;
 
 /* The font sizes for h1-h6. */
 $h1-font-size: 2    * $base-font-size;
@@ -56,3 +57,6 @@ $h6-font-size: 0.67 * $base-font-size;
 
 // The amount lists and blockquotes are indented.
 $indent-amount: 40px;
+
+$border: 1px solid $text;
+$border-radius: 4px;
