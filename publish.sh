@@ -14,13 +14,11 @@ set -o errexit
 set -u nounset
 
 # Where stuff is
-tachikoma="externals/Tachikoma/tachikoma.py"
 site_dir="samlr_com"
 publish_dir="../published"
 
 # What to run, and branch names
-pre_build="gulp sass"
-exe="python3 $tachikoma $site_dir"
+build_cmd="gulp build"
 publish_repo="publish"
 publish_branch="master"
 # Checks that we're on the right branch & everything's commited 
@@ -36,9 +34,7 @@ if [[ $uncommited_changes ]]; then
 fi
 commit_msg=`git log -1 --pretty=%B`
 
-
-rm -r $site_dir/_site/*
-$pre_build
+$build_cmd
 # Re-run Tachikoma
 echo "HAVE YOU ADDED THE GULP STEP?"
 
