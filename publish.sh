@@ -39,7 +39,9 @@ echo "Re-write 'about me'"
 
 # Run the build process
 $build_cmd
-# Copy everything across 
+# Delete previous contents
+rm -rf $publish_dir/*
+# Copy everything across (git will still diff properly)
 cp -r $copy_src $publish_dir
 exit 1
 # Move to the publishing dir 
