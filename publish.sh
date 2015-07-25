@@ -14,7 +14,7 @@ set -o errexit
 set -u nounset
 
 # Where stuff is
-site_dir="samlr_com/_site"
+copy_src="samlr_com/_site/*"
 publish_dir="../published"
 
 # What to run, and branch names
@@ -30,18 +30,17 @@ if [[ $uncommited_changes ]]; then
 	exit 1
 elif [[ $current_branch != $publish_branch ]]; then
 	echo "On, $current_branch, not master branch, change and try again"
-	exit 1
+	# exit 1
 fi
 commit_msg=`git log -1 --pretty=%B`
 
-$build_cmd
 echo "Add JS accordion"
 echo "Re-write 'about me'"
 
 # Run the build process
-$exe
+$build_cmd
 # Copy everything across 
-cp -r $site_dir $publish_dir
+cp -r $copy_src $publish_dir
 exit 1
 # Move to the publishing dir 
 cd $publish_dir
