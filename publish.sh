@@ -19,6 +19,7 @@ site_dir="samlr_com"
 publish_dir="../published"
 
 # What to run, and branch names
+pre_build="gulp sass"
 exe="python3 $tachikoma $site_dir"
 publish_repo="publish"
 publish_branch="master"
@@ -35,12 +36,14 @@ elif [[ $current_branch != $publish_branch ]]; then
 fi
 commit_msg=`git log -1 --pretty=%B`
 
+
+rm -r $site_dir/_site/*
+$pre_build
+# Re-run Tachikoma
 echo "HAVE YOU ADDED THE GULP STEP?"
 
 exit 1
-
-# Re-run Tachikoma
-$exe 
+$exe
 # Copy everything across 
 cp -r $site_dir/_site/* $publish_dir
 # Move to the publishing dir 
