@@ -12,10 +12,10 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence');
 
 // The tasks we actually want to run
-gulp.task('default', ['tachikoma:run', 'sass:watch']);
+gulp.task('default', ['sass:watch']);
 
 gulp.task('build', function (cb) {
-    runSequence( 'clean', 'sass', 'tachikoma', cb );
+    runSequence( 'clean', 'sass', 'tachikoma:build', cb );
 });
 
 gulp.task('clean', ['clean-sass', 'clean-site']);
@@ -37,10 +37,7 @@ gulp.task('sass:watch', function () {
     gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
-gulp.task('tachikoma:run',
-    shell.task('python3 externals/Tachikoma/tachikoma.py -s samlr_com/'));
-gulp.task('tachikoma:build',
-    shell.task('python3 externals/Tachikoma/tachikoma.py samlr_com/'));
+gulp.task('tachikoma:build', shell.task('python3 externals/Tachikoma/tachikoma.py samlr_com/'));
 
 gulp.task('clean-sass', function (cb) {
     del([ 'samlr_com/css/*', 'sass/.sass-cache/*' ], cb);
