@@ -14,7 +14,7 @@ set -o errexit
 set -u nounset
 
 # Where stuff is
-site_dir="samlr_com"
+site_dir="samlr_com/_site"
 publish_dir="../published"
 
 # What to run, and branch names
@@ -38,11 +38,11 @@ $build_cmd
 echo "Add JS accordion"
 echo "Re-write 'about me'"
 
-exit 1
 # Run the build process
 $exe
 # Copy everything across 
-cp -r $site_dir/_site/* $publish_dir
+cp -r $site_dir $publish_dir
+exit 1
 # Move to the publishing dir 
 cd $publish_dir
 # Add everything (including new files)
