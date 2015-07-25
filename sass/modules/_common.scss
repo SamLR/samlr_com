@@ -7,6 +7,19 @@
   margin-bottom: $gutter;
   .header__title { color: $main; }
   .header__nav { text-align: right; }
+  .active { @extend %bold; }
 }
 
 .inline-list li { display: inline-block; }
+
+.footnote {
+  $para-spacing: 0.5 * $gutter;
+  
+  margin-top: $gutter;
+  padding-top: $para-spacing;
+  font-size: $h5-font-size;
+  border-top: 1px solid $text;
+  p {
+    margin-bottom: $para-spacing;
+  }
+}

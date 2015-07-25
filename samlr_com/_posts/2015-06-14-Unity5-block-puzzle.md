@@ -3,7 +3,6 @@ layout: post
 summary: My first game in Unity 5.
 ---- END YAML HEADER ----
 {% block post_body %}
-
 Month 3 of game making (sort of) and I've got another game [[1](#footnote1)<a id="jumpback1"></a>]! This one you actually have to download and run and everything (neat, eh?). It's a very simple block puzzle. In fact so simple it won't even tell you when you win or lose: it will just put you back at the start of the single level I've made so far. So that you know: you 'win' when you get to the white cube.
 
 Your cube (the purple one) can move any distance along the 3 main axes. By default you control your movement using 'wasd' (+'qe'). As this is a Unity game though you can change these in the dialog box that opens when you start the game (under the 'horizontal', 'vertical' and 'forward/backward' axes).
@@ -22,19 +21,11 @@ As to future plans currently they're just to make a few more basic levels. To ai
 
 If you liked the game any feedback can be sent to [games@samlr.com](mailto:games@samlr.com).
 
-----
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
+{% endblock post_body %}
+{% block footnote %}
 [1]<a id="footnote1"></a> The previous month's efforts are: [A javascript platformer](2015-03-22-First-try-at-a-game.html) and [a card game](2015-05-09-Card-game.html). [*[back](#jumpback1)*]
 
-{% endblock post_body %}
+{% endblock footnote %}
 {% block post_right %}
 
 ## Download links ##

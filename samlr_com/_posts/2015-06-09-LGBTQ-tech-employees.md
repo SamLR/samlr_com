@@ -3,7 +3,6 @@ layout: post
 summary: Quick write up of my attempts to determine the number of LGBTQ people working in technology.
 ---- END YAML HEADER ----
 {% block post_body %}
-
 A friend of mine asked this morning if anyone had any numbers for people who identify as LGBTQ and work in technology. Taking this as a challenge I spent the next two hours trying to find out. This is a write up of what I found but the short version: we don't know. There is some data but it's far too sparse to be useful. The rest of this post will be vague ramblings about what I did find out. If you'd like to follow along at home (or argue with me) I've written up a [sister post](2015-06-09-Using-GSS.html) to this one discussing using GSS as it's not the most intuitive interface.
 
 ----
@@ -70,16 +69,9 @@ As I said at the start: How many LGBTQ people are there in tech? We don't know. 
 With this data I can't really say much. A lot of people I spoke to about this result thought the estimate was low but I think there's a strong sampling bias there. This 4% value is, at least, in-line with the [GSS' total value](https://gssdataexplorer.norc.org/projects/687/variables/5081/vshow) (this also raises to about 13% if you include all NA's but that's not a good idea).
 
 In fact, probably the only really interesting result from this is that the number of people who will self identity as LGBTQ in surveys is much lower than the commonly held value of 10%. In the UK the [IHS](http://www.ons.gov.uk/ons/dcp171778_280451.pdf) gives a figure of 1.5% for people who identify as LGB (no T or Q again...). This rises to only 2.7% in under 25's. In the US the [NHIS](http://www.cdc.gov/nchs/data/series/sr_02/sr02_169.pdf) found LGB (still no T or Q) respondents to be 2.3% of the populace (with an additional 1.1% answering variants on "N/A"). Anonymous or un-official surveys seem to get higher percentages, [one from the Guardian](http://www.theguardian.com/lifeandstyle/2014/sep/28/british-sex-survey-2014-nation-lost-sexual-swagger) found ~8% identifying as either homosexual or bisexual [[4](#footnote4)<a id="jumpback4"></a>]&nbsp;(again this rises, apparently to 21% in under 25's). Similarly in the US the [Williams Institute](http://williamsinstitute.law.ucla.edu/wp-content/uploads/Gates-How-Many-People-LGBT-Apr-2011.pdf) found 3.5% of people were LGB with 0.3% as T (finally!) but 11% had experience same-sex attraction.
+{% endblock post_body %}
 
-----
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-
+{% block footnote %}
 [1]<a id="footnote1"></a> "The Independent research organization NORC at the University of Chicago", apparently the NORC bit stands for "National Opinion Research Centre" which all feels a bit redundant. Also: NORC! [*[back](#jumpback1)*]
 
 [2]<a id="footnote2"></a> Questions basically; in fact they are questions. Not sure why they need to use 'variables' for this... [*[back](#jumpback2)*]
@@ -88,8 +80,7 @@ In fact, probably the only really interesting result from this is that the numbe
 
 [4]<a id="footnote4"></a> For some reason there's an infographic on that page with heterosexual as 44%. I'm assuming it's a typo but you can dream... [*[back](#jumpback4)*]
 
-
-{% endblock post_body %}
+{% endblock footnote %}
 {% block post_right %}
 
 ### Resources ###

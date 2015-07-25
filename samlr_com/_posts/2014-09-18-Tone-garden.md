@@ -3,7 +3,6 @@ layout: post
 summary: First version of a my current project, a 'tone garden'.
 ---- END YAML HEADER ----
 {% block post_body %}
-
 Apparently I've decided I have free time now (HA!). To this end I've made a (below). I'm calling it a tone garden. Firstly, be warned, it's currently horrible and sounds like crap. Secondly, be warned, I'm pretty flaky at projects so it may never get beyond this.
 
 So what is it? It's a 'tone garden'. Click inside the border to place a box, the x position of the box determines the frequency of the sound, the y position the volume. Click on a box again to remove it.

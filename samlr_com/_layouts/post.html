@@ -7,6 +7,11 @@
     {% block post_body %}
     {# Have the posts write into this block, not body #}
     {% endblock post_body %}
+    <div class="footnote">
+        {% block footnote %}
+            
+        {% endblock footnote %}
+    </div>
 
 <p>
     <small>Posted: {{ page.date.day }}th {{ page.date.month | get_month_str }} {{ page.date.strftime("%Y") }}</small>

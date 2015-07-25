@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css');
 
 gulp.task('sass', function () {
-  gulp.src('./samlr_com/sass/**/*.scss')
+  gulp.src('./sass/**/*.scss')
     .pipe(
         sass({ style: 'expanded' }).on('error', sass.logError)
     )
@@ -21,5 +21,5 @@ gulp.task('sass', function () {
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./samlr_com/sass/**/*.scss', ['sass']);
+  gulp.watch('./sass/**/*.scss', ['sass']);
 });

@@ -3,7 +3,6 @@ layout: post
 summary: A quick tip on making the most of the command-overlay
 ---- END YAML HEADER ----
 {% block post_body %}
-
 I'm deep in my first week at my new job so this will be a quick post. I've just moved to a new text editor ([Sublime](www.sublimetext.com "It is, you know")) from my long time friend: [Textmate](www.macromates.com "Fairwell, old friend."), I'm not going to review either of them here (as that will be a long post) suffice to say Sublime isn't perfect but does seem to be a bit closer to it than Textmate...
 
 [There](http://iamkeir.com/post/32800623503/sublime-text-2-tips-for-getting-started "Getting started") [are](http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/ "Tips this time") [plenty](http://wbond.net/sublime_packages "all the packages") of blogs about using sublime, so I'm not going to rehash what others have said already. 

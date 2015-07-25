@@ -74,7 +74,8 @@ Feel free to [email](mailto:sam@samlr.com "mail me!") me any questions, comments
 **PS** I'll try to either keep this updated or keep any further posts on learning Go linked together, I don't yet have tags or similar implemented on the blog but I have a few ideas!
 
 
-----
+{% endblock post_body %}
+{% block footnote %}
 [1]<a id="footnote1"></a> Go's syntax is basically C like, heavily enforced and, in a couple of cases ['backwards'](http://golang.org/doc/articles/gos_declaration_syntax.html "They're sort of right"), other than that I'm not too bothered... With the exception of named [return values](http://golang.org/ref/spec#Return_statements "type 3...") which I think has potential to be confusing and will discuss later. [*[back](#jumpback1)*]
 
 [2]<a id="footnote2"></a> "Go", not to be confused with the *other* programming language "[Go!](http://en.wikipedia.org/wiki/Go!_(programming_language) "The '!' makes all the difference")" which predates Google's offering by 6 years and is very different. [*[back](#jumpback2)*]
@@ -96,12 +97,10 @@ Feel free to [email](mailto:sam@samlr.com "mail me!") me any questions, comments
 [10]<a id="footnote10"></a> Yes, I can have objective feelings, so sue me. [*[back](#jumpback10)*] 
 
 [11]<a id="footnote11"></a> Especially as the [receive operator](http://golang.org/ref/spec#Receive_operator "recv, ok?") for channels can return two values (the value and an 'ok'), why not make range give you that, or a count of things received and the value or nil and then the value or... [*[back](#jumpback11)*]
-
-{% endblock post_body %}
-
+{% endblock footnote %}
 
 {% block post_right %}
-#####Further, better reading####
+###Further, better reading###
 * [The Go tour](http://tour.golang.org "A really good scratch pad")
 * [The Go specification](http://golang.org/ref/spec "All the fun of Extended Backus-Naur Form").
 * [Effective go](http://golang.org/doc/effective_go.html "How to leave, well") I've not finished reading this yet but it does clear up many of the issues in the main part of the post.
