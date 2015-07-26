@@ -43,7 +43,7 @@ $build_cmd
 rm -rf $publish_dir/*
 # Copy everything across (git will still diff properly)
 cp -r $copy_src $publish_dir
-exit 1
+
 # Move to the publishing dir 
 cd $publish_dir
 # Add everything (including new files)
