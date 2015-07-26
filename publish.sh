@@ -34,9 +34,6 @@ elif [[ $current_branch != $publish_branch ]]; then
 fi
 commit_msg=`git log -1 --pretty=%B`
 
-echo "Add JS accordion"
-echo "Re-write 'about me'"
-
 # Run the build process
 $build_cmd
 # Delete previous contents
@@ -50,4 +47,4 @@ cd $publish_dir
 git add -A 
 # Use the same commit message & push
 git commit -m "$commit_msg"
-git push $publish_repo $publish_branch 
+git push
