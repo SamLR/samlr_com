@@ -1,0 +1,6 @@
+.blog-list { padding-left: $gutter; }
+.blog-list__title {
+  cursor: pointer;
+  border-bottom: $border;
+}
+.blog-list__posts { padding-left: $gutter; }

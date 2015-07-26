@@ -2,41 +2,22 @@
 layout: base
 --- End YAML front matter ---
 {% block _main %}
-<div class="span5">
+<div class="blog-list">
     <p>My recent postings:</p>
-    <div class="accordion" id="accordion2">
-        {% for year in site.posts|groupby(attribute="date.year")|reverse %}
-            {% set very_first = loop.first %}
-            {% for month in year.list|groupby(attribute="date.month")|reverse %}
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ year.grouper }}-{{ month.grouper }}">
-                        {{ year.grouper }} {{ month.grouper | get_month_str }}
-                    </a>
-                </div>
-                <div id="collapse{{ year.grouper }}-{{ month.grouper }}" class="accordion-body collapse{% if very_first %} in{% endif %}">
-                    <div class="accordion-inner">
-                        <dl class="dl-horizontal">
-                            {% for post in month.list | sort(attribute="date.day", reverse=true) %}
-                            <dt>
-                                <a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a>
-                            </dt>
-                            <dd>
-                                {{ post.metadata['summary'] }}
-                            </dd>
-                            {% endfor %}
-                        </dl>
-                    </div>
-                </div>
+    {% for year in site.posts | groupby(attribute="date.year") | reverse %}
+        {% set first_year = loop.first %}
+        {% for month in year.list | groupby(attribute="date.month") | reverse %}
+            <div class="blog-list__title" onclick="hideBlock('group-{{ year.grouper }}-{{ month.grouper }}')">
+                {{ year.grouper }} {{ month.grouper | get_month_str }}
             </div>
-            {% endfor %}
+            <dl class="blog-list__posts" id="group-{{ year.grouper }}-{{ month.grouper }}" {% if not (first_year and loop.first) %}style="display:none;"{% endif %}>
+                {% for post in month.list | sort(attribute="date.day", reverse=true) %}
+                    <dt><a href="{{ post.url }}">{{ post.title | replace("_", " ") }}</a></dt>
+                    <dd>{{ post.metadata['summary'] }}</dd>
+                {% endfor %}
+            </dl>
         {% endfor %}
-    </div>
-</div>
-<div class="span5">
-    <p>
-        &nbsp;
-    </p>
+    {% endfor %}
     <p>
         I blog about what I want and when I want. A lot of this stuff will be write ups of projects I'm on with the occasional extended comment on someone else's work. As much as possible I'll try to keep it interesting but I make no promises. 
     </p>
@@ -44,6 +25,17 @@ layout: base
 {% endblock _main %}
 
 {% block scripts %}
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function hideBlock (id) {
+            'use strict';
+            var elementToHide = document.getElementById(id);
+            var currentStyle = elementToHide.style.display;
+
+            if (currentStyle === 'none') {
+                elementToHide.style.display = 'block';
+            } else {
+                elementToHide.style.display = 'none';
+            }
+        }
+    </script>
 {% endblock scripts %}
