@@ -25,9 +25,20 @@ pre {
   overflow-x: scroll;
 }
 
+code {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  font-family: $mono-font-family;
+  background-color: $alt-background;
+  overflow-x: scroll;
+}
+
 ol { padding-left: $gutter; }
 
-/* 
+/*
  * Set margins for block elements. Don't set on h1 tag as that's only used for
  * for the header.
  */
