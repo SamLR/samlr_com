@@ -6,7 +6,7 @@ Because otherwise I forget how this all works...
 
 Running the server
 ```bash
-$ pipenv run python externals/Tachikoma/tachikoma.py -s samlr_com
+$ pipenv run server
 ```
 
 Building the CSS

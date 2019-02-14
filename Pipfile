@@ -14,3 +14,6 @@ mdx_outline = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+server = "python externals/Tachikoma/tachikoma.py --serve samlr_com"
