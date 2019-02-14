@@ -1,27 +1,17 @@
-/* global require */
+var del  = require('del'),
+    exec = require('child_process').exec,
+    gulp = require('gulp'),
 
-'use strict';
-
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    shell = require('gulp-shell'),
-    del = require('del'),
-    runSequence = require('run-sequence');
+    cleancss     = require('gulp-clean-css'),
+    rename       = require('gulp-rename'),
+    sass         = require('gulp-sass');
 
-// The tasks we actually want to run
-gulp.task('default', ['sass:watch']);
+function cleanSass() { return del(['samlr_com/css/*']); }
+function cleanSite() { return del(['samlr_com/_site/*']); }
+var clean = gulp.parallel(cleanSass, cleanSite);
 
-gulp.task('build', function (cb) {
-    runSequence( 'clean', 'sass', 'tachikoma:build', cb );
-});
-
-gulp.task('clean', ['clean-sass', 'clean-site']);
-
-// The sub tasks
-gulp.task('sass', function () {
+function styles() {
     return gulp.src('./sass/**/*.scss')
         .pipe(
             sass({ style: 'expanded' }).on('error', sass.logError)
@@ -29,20 +19,24 @@ gulp.task('sass', function () {
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('./samlr_com/css'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(minifycss())
+        .pipe(cleancss())
         .pipe(gulp.dest('./samlr_com/css'));
-});
+}
 
-gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
-});
+function watchStyles() { return gulp.watch('./sass/**/*.scss', styles); }
 
-gulp.task('tachikoma:build', shell.task('python3 externals/Tachikoma/tachikoma.py samlr_com/'));
+function buildHtml() {
+    return exec( 'pipenv run python externals/Tachikoma/tachikoma.py samlr_com/');
+}
 
-gulp.task('clean-sass', function (cb) {
-    del([ 'samlr_com/css/*', 'sass/.sass-cache/*' ], cb);
-});
+exports.build = gulp.series(clean, styles, buildHtml);
 
-gulp.task('clean-site', function (cb) {
-    del(['samlr_com/_site/*'], cb);
-});
+exports.styles = styles;
+exports.buildHtml = buildHtml;
+
+exports.clean = clean;
+exports.cleanSass = cleanSass;
+exports.cleanSite = cleanSite;
+
+exports.watchStyles = watchStyles;
+exports.default = watchStyles;
