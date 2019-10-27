@@ -8,6 +8,8 @@ Only one today [Harmonic Polyrhythms Explained!](https://www.youtube.com/watch?v
 
 Anyway, will try to have more for y'all next week.
 
+**Edited to add** the other thing that's worth reading this week is [Hackers steal secret crypto keys for NordVPN. Here’s what we know so far](https://arstechnica.com/information-technology/2019/10/hackers-steal-secret-crypto-keys-for-nordvpn-heres-what-we-know-so-far/) from Dan Goodin at Ars Technica. Mostly flagging this as I use NordVPN and I'll likely be changing that soon given the contents of this report.
+
 {% endblock post_body %}
 
 {% block footnotes %}
