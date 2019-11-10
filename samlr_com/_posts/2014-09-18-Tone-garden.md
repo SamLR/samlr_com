@@ -3,6 +3,9 @@ layout: post
 summary: First version of a my current project, a 'tone garden'.
 ---- END YAML HEADER ----
 {% block post_body %}
+
+**Update (2019-11-10):** Apparently at some point in the last 5 years this will have stopped working because chrome demands interaction before using audio[[1](#footnote1)<a id="jumpback1"></a>], anyway I've finally noticed and fixed it ([Chrome update here](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes#webaudio)[[2](#footnote2)<a id="jumpback2"></a>])
+
 Apparently I've decided I have free time now (HA!). To this end I've made a (below). I'm calling it a tone garden. Firstly, be warned, it's currently horrible and sounds like crap. Secondly, be warned, I'm pretty flaky at projects so it may never get beyond this.
 
 So what is it? It's a 'tone garden'. Click inside the border to place a box, the x position of the box determines the frequency of the sound, the y position the volume. Click on a box again to remove it.
@@ -38,3 +41,9 @@ Resources (AKA stuff I knabbed):
 * Lots and lots of [stackoverflow](http://stackoverflow.com/ "can't remember them all")
 
 {% endblock post_right %}
+
+{% block footnote %}
+[1<a id="footnote1"></a>]: which I'm totally OK with, auto play music is horrible [[*back*](#jumpback1)]
+
+[2<a id="footnote2"></a>]: Apparently this broke ~2017 so.. yea been out for a while. [[*back*](#jumpback2)]
+{% endblock footnote %}

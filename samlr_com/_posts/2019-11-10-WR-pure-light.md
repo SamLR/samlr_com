@@ -4,7 +4,7 @@ summary: Lasers and CSS this week
 ---- END YAML HEADER ----
 {% block post_body %}
 
-Another week and I continue my streak (of actually doing this). Here goes:
+Another week and I continue my streak (of actually doing this), also I fixed my [Tone Garden](/posts/2014-09-18-Tone-garden.html) so if for some reason you've been looking for it over the last 2 years it's been broken, it's not any more. Anyway, here's the thing:
 
 In "the dystopia is already here, it's just not evenly distributed" news: [the pentagon has a laser that can identify people from a distance by their heartbeat](https://www.technologyreview.com/s/613891/the-pentagon-has-a-laser-that-can-identify-people-from-a-distanceby-their-heartbeat/). Apparently. These things are always a bit strange as if they're announcing it then it generally seems safe to assume they have better stuff (don't give away your best toys etc). Also, this just doesn't seem that useful, it's a neat trick and I can imagine that there will be applications but the times when it's going to be easier to use this over, e.g. a good camera and facial recognition or gait analysis seem slim[[1](#footnote1)<a id="jumpback1"></a>]. Anyway seems like a neat trick and I'm sure it's been strapped to something deadly if only to see what happens so Hooray! keep those military industrial complex dollars rolling.
 

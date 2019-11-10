@@ -11,6 +11,7 @@
     var MAX_GAIN = 0.02;
     var MIN_FREQUENCY = 2000;
     var MAX_FREQUENCY = 5000;
+    var resumed = false;
 
     // derived values
     var freqScaler = (MAX_FREQUENCY - MIN_FREQUENCY)/WIDTH;
@@ -24,6 +25,7 @@
 
     // Create audio context (check which version to use)
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
     // Have individual tone boxes attach to a master volume controller
     var masterGainNode = audioCtx.createGain();
     masterGainNode.gain.value = MAX_GAIN;
@@ -33,6 +35,10 @@
 
     // Mute functionality
     function mute() {
+        if (!resumed) {
+            audioCtx.resume();
+            resumed = true;
+        }
         if (muteBtn.getAttribute('data-muted') === "false") {
             masterGainNode.disconnect(audioCtx.destination);
             muteBtn.setAttribute('data-muted', 'true');
@@ -47,7 +53,7 @@
     var muteBtn = document.querySelector('#mute');
     muteBtn.onclick = mute;
     // Run twice to ensure initialised according to index.html
-    mute(); 
+    mute();
     mute();
 
     // Complete reset
@@ -140,7 +146,7 @@
                     if ( (y1 < p.y) && (p.y < y2) ) {
                         return true;
                     }
-                } 
+                }
                 return false;
             },
             // Draw the tone box
