@@ -1,14 +1,16 @@
-var del  = require('del'),
-    exec = require('child_process').exec,
-    gulp = require('gulp'),
+import {deleteAsync} from 'del';
 
-    autoprefixer = require('gulp-autoprefixer'),
-    cleancss     = require('gulp-clean-css'),
-    rename       = require('gulp-rename'),
-    sass         = require('gulp-sass');
+import {exec}  from 'child_process';
 
-function cleanSass() { return del(['samlr_com/css/*']); }
-function cleanSite() { return del(['samlr_com/_site/*']); }
+import gulp from 'gulp';
+import sass from 'gulp-dart-sass';
+import rename from 'gulp-rename';
+import cleancss from 'gulp-clean-css';
+
+import autoprefixer from 'gulp-autoprefixer';
+
+function cleanSass() { return deleteAsync(['samlr_com/css/*']); }
+function cleanSite() { return deleteAsync(['samlr_com/_site/*']); }
 var clean = gulp.parallel(cleanSass, cleanSite);
 
 function styles() {
@@ -29,14 +31,9 @@ function buildHtml() {
     return exec( 'pipenv run python externals/Tachikoma/tachikoma.py samlr_com/');
 }
 
-exports.build = gulp.series(clean, styles, buildHtml);
 
-exports.styles = styles;
-exports.buildHtml = buildHtml;
+var build = gulp.series(clean, styles, buildHtml);
 
-exports.clean = clean;
-exports.cleanSass = cleanSass;
-exports.cleanSite = cleanSite;
+export { build, styles, buildHtml, clean, cleanSass, cleanSite, watchStyles };
 
-exports.watchStyles = watchStyles;
-exports.default = watchStyles;
+export default watchStyles;
