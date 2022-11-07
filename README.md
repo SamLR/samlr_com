@@ -21,20 +21,10 @@ summary:
 
 ## Running
 
-Running the server
+in *theory* this now all runs in docker:
 ```bash
-$ pipenv run server
-```
-
-Building the CSS
-```bash
-$ gulp styles       # one time
-$ gulp              # By default will watch the sass
-```
-
-Static build
-```bash
-$ guld build  # Makes everything
+$ docker build -t samlr .
+$ docker run --rm -v $PWD:/app -p 8000:8000 samlr
 ```
 
 ## Publishing
@@ -51,3 +41,5 @@ Currently using `pipenv` and `npm`
 $ pipenv install
 $ npm install -D
 ```
+
+
