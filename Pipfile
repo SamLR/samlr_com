@@ -13,7 +13,7 @@ PyYAML = "*"
 mdx_outline = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.11"
 
 [scripts]
 server = "python externals/Tachikoma/tachikoma.py --serve samlr_com"
