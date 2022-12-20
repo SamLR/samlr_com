@@ -13,12 +13,8 @@
 set -o errexit
 set -u nounset
 
-# Where stuff is
-copy_src="samlr_com/_site/*"
-publish_dir="../published"
-
 # What to run, and branch names
-build_cmd="gulp build"
+publish_dir="../published"
 publish_repo="publish"
 publish_branch="master"
 # Checks that we're on the right branch & everything's commited 
@@ -34,17 +30,24 @@ elif [[ $current_branch != $publish_branch ]]; then
 fi
 commit_msg=`git log -1 --pretty=%B`
 
-# Run the build process
-$build_cmd
 # Delete previous contents
-rm -rf $publish_dir/*
-# Copy everything across (git will still diff properly)
-cp -r $copy_src $publish_dir
+rm -rf "${publish_dir}/*"
+
+# Build a docker image, run it and copy out of it
+publish_img=samlr_publish
+docker build -t "${publish_img}" .
+docker_container_id=$(docker run -d --rm --entrypoint sleep "${publish_img}" -- 30)
+
+for item in $(docker exec "${docker_container_id}" ls /app/samlr_com/_site);
+do
+	docker cp "${docker_container_id}":"/app/samlr_com/_site/${item}" "${publish_dir}/${item}"
+done
+docker stop "${docker_container_id}"
 
 # Move to the publishing dir 
-cd $publish_dir
+cd "$publish_dir"
 # Add everything (including new files)
-git add -A 
+git add -A
 # Use the same commit message & push
 git commit -m "$commit_msg"
 git push
